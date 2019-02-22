@@ -6,7 +6,7 @@
     "types": "dist/index.d.ts",
     "private": false,
     "scripts": {
-        "test": "mocha --opts ./test/.mocha.opts",
+        "test": "mocha",
         "start": "npm run build:live",
         "build:live": "nodemon",
         "build": "tsc",
@@ -37,7 +37,7 @@
         "@types/node": "^11.9.0",
         "@types/sinon": "^7.0.3",
         "chai": "^4.2.0",
-        "mocha": "^5.2.0",
+        "mocha": "^6.0.0",
         "nodemon": "^1.18.0",
         "nyc": "^13.1.0",
         "sinon": "^7.2.2",
