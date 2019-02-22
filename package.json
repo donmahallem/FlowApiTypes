@@ -1,9 +1,10 @@
 {
     "name": "@donmahallem/flow-api-types",
     "version": "0.0.1-alpha1",
-    "description": "",
+    "description": "Api Types and helper for FlowApi",
     "main": "dist/index.js",
     "types": "dist/index.d.ts",
+    "private": false,
     "scripts": {
         "test": "mocha --opts ./test/.mocha.opts",
         "start": "npm run build:live",
