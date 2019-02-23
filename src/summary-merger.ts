@@ -1,4 +1,4 @@
-import { DayData, DaySummary } from "./model";
+import { DayData, DaySummary } from './model';
 
 export class SummaryMerger {
     private data: DaySummary = {};
@@ -23,7 +23,7 @@ export class SummaryMerger {
     public add(day: DayData, force: boolean = false, key: string = null): void {
         const dayKey: string = key ? key : this.generateKey(day);
         if (this.data[dayKey] && force === false) {
-            throw new Error("Day already exists in merge");
+            throw new Error('Day already exists in merge');
         }
         this.data[dayKey] = day;
     }

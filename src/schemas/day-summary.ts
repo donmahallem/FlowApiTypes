@@ -1,116 +1,116 @@
-import * as jsonschema from "jsonschema";
+import * as jsonschema from 'jsonschema';
 
-export const timeValuePair: jsonschema.Schema = {
-    type: "object",
+export const TimeValuePairSchema: jsonschema.Schema = {
+    type: 'object',
     properties: {
-        "time": {
-            type: "integer",
+        'time': {
+            type: 'integer',
         }, value: {
-            type: "number"
+            type: 'number'
         }
     }
 }
-export const startEndTimePair: jsonschema.Schema = {
-    type: "object",
+export const StartEndTimePairSchema: jsonschema.Schema = {
+    type: 'object',
     properties: {
         startTime: {
-            type: "integer",
+            type: 'integer',
         }, endTime: {
-            type: "number"
+            type: 'number'
         }
     }
 }
 
-export const activityTimelineIconsSchema: jsonschema.Schema = {
-    type: "object",
+export const ActivityTimelineIconsSchema: jsonschema.Schema = {
+    type: 'object',
     properties: {
         activityTimelineIconType: {
-            type: "string",
+            type: 'string',
         },
         distance: {
-            type: "integer",
+            type: 'integer',
         },
         duration: {
-            type: "integer",
+            type: 'integer',
         },
         kiloCalories: {
-            type: "integer",
+            type: 'integer',
         },
         localTime: {
-            type: "integer",
+            type: 'integer',
         },
         sleepPlus: {
-            type: "boolean",
+            type: 'boolean',
         },
         sportName: {
-            type: "string",
+            type: 'string',
         },
         url: {
-            type: "string",
+            type: 'string',
         }
     }
 }
 
-export const activityGraphData: jsonschema.Schema = {
-    "id": "/ActivityGraphData",
-    "type": "object",
-    "properties": {
+export const ActivityGraphDataSchema: jsonschema.Schema = {
+    'id': '/ActivityGraphData',
+    'type': 'object',
+    'properties': {
         activityTimelineIcons: {
-            type: "array",
-            items: activityTimelineIconsSchema
+            type: 'array',
+            items: ActivityTimelineIconsSchema
         },
         activityTimelineSamples: {
-            type: "array",
-            "items": timeValuePair
+            type: 'array',
+            'items': TimeValuePairSchema
         },
         activityZoneLimits: {
-            type: "array",
-            "minItems": 1,
-            "maxItems": 7,
-            "items": {
-                "type": "number"
+            type: 'array',
+            'minItems': 1,
+            'maxItems': 7,
+            'items': {
+                'type': 'number'
             }
         },
         heartRateSummary: {
-            type: "object",
+            type: 'object',
             properties: {
-                dayMaximum: { type: "number" },
-                dayMaximumDateTime: { type: "number" },
-                dayMinimum: { type: "number" },
-                dayMinimumDateTime: { type: "number" },
-                nightMinimum: { type: "number" },
-                nightMinimumDateTime: { type: "number" }
+                dayMaximum: { type: 'number' },
+                dayMaximumDateTime: { type: 'number' },
+                dayMinimum: { type: 'number' },
+                dayMinimumDateTime: { type: 'number' },
+                nightMinimum: { type: 'number' },
+                nightMinimumDateTime: { type: 'number' }
             }
         },
         heartRateTimelineSamples: {
-            type: "array",
-            items: timeValuePair
+            type: 'array',
+            items: TimeValuePairSchema
         },
-        highSessionTimelineList: { type: "array" },
-        lastSync: { type: "number" },
+        highSessionTimelineList: { type: 'array' },
+        lastSync: { type: 'number' },
         trainingTimelineList: {
-            type: "array",
-            items: startEndTimePair
+            type: 'array',
+            items: StartEndTimePairSchema
         }
     }
 }
 
 
-export const addressSchema: jsonschema.Schema = {
-    "id": "/SimpleAddress",
-    "type": "object",
-    "patternProperties": {
+export const ActivityTimelineSchema: jsonschema.Schema = {
+    'id': '/ActivityTimeline',
+    'type': 'object',
+    'patternProperties': {
         // The property name will be passed to new RegExp(prop), so backslashes
         // have to be escaped.
-        "^[0-9]{4,4}\-[0-9]{1,2}\-[0-9]{1,2}$": {
-            "type": "object",
-            "properties": {
-                "dataPanelData": {
-                    "type": "object"
+        '^[0-9]{4,4}\-[0-9]{1,2}\-[0-9]{1,2}$': {
+            'type': 'object',
+            'properties': {
+                'dataPanelData': {
+                    'type': 'object'
                 },
-                "activityGraphData": activityGraphData
+                'activityGraphData': ActivityGraphDataSchema
             }
         }
     },
-    "additionalProperties": false
+    'additionalProperties': false
 };
