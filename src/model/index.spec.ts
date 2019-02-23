@@ -1,4 +1,4 @@
-import { ActivityGraphData } from './index'
+import { IActivityGraphData } from "./index"
 import { expect } from "chai";
 import "mocha";
 

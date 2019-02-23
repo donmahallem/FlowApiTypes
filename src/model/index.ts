@@ -1,40 +1,42 @@
-export interface DaySummary {
-
-    [key: string]: DayData;
+export interface IDaySummary {
+    [key: string]: IDayData;
 }
-export interface MiniGraphData {
+
+export interface IMiniGraphData {
     calorieReportUrl: string;
     dailyGoalReportUrl: string;
     data: {
-        calories: TimeValuePair;
-        dailyGoal: TimeValuePair;
+        calories: ITimeValuePair;
+        dailyGoal: ITimeValuePair;
         date: number;
-        distance: TimeValuePair;
-        nightLowHr: TimeValuePair;
-        sleepAverage: TimeValuePair;
+        distance: ITimeValuePair;
+        nightLowHr: ITimeValuePair;
+        sleepAverage: ITimeValuePair;
         sleepPlus: boolean;
-    },
+    };
     distanceReportUrl: string;
     sampleDate: number;
     sleepAvgReportUrl: string;
 }
-export interface DayData {
-    activityGraphData: ActivityGraphData;
-    miniGraphData: MiniGraphData;
-}
-export interface ActivityGraphData {
-    heartRateTimelineSamples: TimeValuePair[];
-    heartRateSummary: HeartRateSummary;
-    activityZoneLimits: number[];
-    activityTimelineSamples: TimeValuePair[];
+
+export interface IDayData {
+    activityGraphData: IActivityGraphData;
+    miniGraphData: IMiniGraphData;
 }
 
-export interface TimeValuePair {
+export interface IActivityGraphData {
+    heartRateTimelineSamples: ITimeValuePair[];
+    heartRateSummary: IHeartRateSummary;
+    activityZoneLimits: number[];
+    activityTimelineSamples: ITimeValuePair[];
+}
+
+export interface ITimeValuePair {
     time: number;
     value: number;
 }
 
-export interface HeartRateSummary {
+export interface IHeartRateSummary {
     dayMaximum: number;
     dayMaximumDateTime: number;
     dayMinimum: number;
@@ -43,4 +45,4 @@ export interface HeartRateSummary {
     nightMinimumDateTime: number;
 }
 
-export * from './sleep-item';
+export * from "./sleep-item";

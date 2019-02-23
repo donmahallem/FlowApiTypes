@@ -1,15 +1,13 @@
-import { DayData, DaySummary } from "./model";
+import { IDayData, IDaySummary } from "./model";
 
 export class SummaryMerger {
-    private data: DaySummary = {};
-    constructor() {
-    }
+    private data: IDaySummary = {};
 
     /**
      * generates the day key
      * @param day the day the key to generate from
      */
-    public generateKey(day: DayData): string {
+    public generateKey(day: IDayData): string {
         const timestamp: number = day.miniGraphData.data.date;
         const dateObj: Date = new Date(timestamp);
         return dateObj.toISOString();
@@ -20,7 +18,7 @@ export class SummaryMerger {
      * @param day the day to be added
      * @param force force insert
      */
-    public add(day: DayData, force: boolean = false, key: string = null): void {
+    public add(day: IDayData, force: boolean = false, key: string = null): void {
         const dayKey: string = key ? key : this.generateKey(day);
         if (this.data[dayKey] && force === false) {
             throw new Error("Day already exists in merge");
@@ -28,8 +26,8 @@ export class SummaryMerger {
         this.data[dayKey] = day;
     }
 
-    public addSummary(summary: DaySummary): void {
-        for (let key of Object.keys(summary)) {
+    public addSummary(summary: IDaySummary): void {
+        for (const key of Object.keys(summary)) {
             this.data[key] = summary[key];
         }
     }
@@ -37,10 +35,10 @@ export class SummaryMerger {
     /**
      * Adds multiple days to the summary
      * @param days The days to be added
-     * @param force 
+     * @param force
      */
-    public addAll(days: DayData[], force: boolean = false): void {
-        for (let day of days) {
+    public addAll(days: IDayData[], force: boolean = false): void {
+        for (const day of days) {
             this.add(day, force);
         }
     }
@@ -48,7 +46,7 @@ export class SummaryMerger {
     /**
      * Gets the map
      */
-    public get(): DaySummary {
+    public get(): IDaySummary {
         return this.data;
     }
 }

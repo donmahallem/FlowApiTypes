@@ -2,7 +2,7 @@ import * as flowApiValidator from "./flow-api-validator";
 import { expect } from "chai";
 import * as sinon from "sinon";
 import * as jsonschema from "jsonschema";
-import { addressSchema } from "./schemas/day-summary";
+import { ActivityTimelineSchema } from "./schemas/day-summary";
 // if you used the "@types/mocha" method to install mocha type definitions, uncomment the following line
 import "mocha";
 
@@ -52,9 +52,9 @@ describe("FlowApiValidator", () => {
             expect(stub1.callCount).to.equal(1);
             expect(stubInstance.addSchema.callCount).to.equal(1);
             expect(stubInstance.addSchema.getCall(0).args.length).to.equal(1);
-            expect(stubInstance.addSchema.getCall(0).args[0]).to.deep.equal(addressSchema);
+            expect(stubInstance.addSchema.getCall(0).args[0]).to.deep.equal(ActivityTimelineSchema);
             expect(stubInstance.validate.callCount).to.equal(1);
-            expect(stubInstance.validate.getCall(0).args).to.deep.equal([testObj, addressSchema]);
+            expect(stubInstance.validate.getCall(0).args).to.deep.equal([testObj, ActivityTimelineSchema]);
         });
     });
 });

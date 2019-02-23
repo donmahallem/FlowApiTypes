@@ -1,4 +1,4 @@
-export interface NightSleep {
+export interface INightSleep {
     id: number;
     night: string;
     sleepEndOffset: number;
@@ -9,13 +9,13 @@ export interface NightSleep {
     sleepStartTime: string;
 }
 
-export interface SleepInterval {
+export interface ISleepInterval {
     sleepWakeState: number;
     offsetFromStart: number;
     longInterruption: boolean;
 }
 
-export interface SleepEvaluationData {
+export interface ISleepEvaluationData {
     asleep: number;
     continuityClass: number;
     continuityIndex: number;
@@ -32,13 +32,13 @@ export interface SleepEvaluationData {
     totalInterruptionDuration: number;
 }
 
-export interface SleepSummary {
+export interface ISleepSummary {
     date: string;
-    nightSleep: NightSleep;
-    sleepEvaluationData: SleepEvaluationData;
+    nightSleep: INightSleep;
+    sleepEvaluationData: ISleepEvaluationData;
 }
 
-export interface SleepNearby {
-    nextNight: SleepSummary;
-    previousNights: SleepSummary[];
+export interface ISleepNearby {
+    nextNight: ISleepSummary;
+    previousNights: ISleepSummary[];
 }
