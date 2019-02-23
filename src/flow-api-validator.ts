@@ -1,6 +1,6 @@
-import { ActivityTimelineSchema } from "./schemas/day-summary";
-import { IDaySummary } from "./model";
 import * as jsonschema from "jsonschema";
+import { IDaySummary } from "./model";
+import { ActivityTimelineSchema } from "./schemas/day-summary";
 
 export class FlowApiValidator {
     public static validateTimelineSummary(data: IDaySummary | any): jsonschema.ValidatorResult {

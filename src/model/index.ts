@@ -13,7 +13,7 @@ export interface IMiniGraphData {
         nightLowHr: ITimeValuePair;
         sleepAverage: ITimeValuePair;
         sleepPlus: boolean;
-    },
+    };
     distanceReportUrl: string;
     sampleDate: number;
     sleepAvgReportUrl: string;

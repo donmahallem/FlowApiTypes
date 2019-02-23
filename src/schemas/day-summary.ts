@@ -1,29 +1,30 @@
 import * as jsonschema from "jsonschema";
 
 export const TimeValuePairSchema: jsonschema.Schema = {
-    type: "object",
     properties: {
-        "time": {
+        time: {
             type: "integer",
-        }, value: {
-            type: "number"
-        }
-    }
+        },
+        value: {
+            type: "number",
+        },
+    },
+    type: "object",
 };
 
 export const StartEndTimePairSchema: jsonschema.Schema = {
-    type: "object",
     properties: {
+        endTime: {
+            type: "number",
+        },
         startTime: {
             type: "integer",
-        }, endTime: {
-            type: "number"
-        }
-    }
+        },
+    },
+    type: "object",
 };
 
 export const ActivityTimelineIconsSchema: jsonschema.Schema = {
-    type: "object",
     properties: {
         activityTimelineIconType: {
             type: "string",
@@ -48,70 +49,70 @@ export const ActivityTimelineIconsSchema: jsonschema.Schema = {
         },
         url: {
             type: "string",
-        }
-    }
+        },
+    },
+    type: "object",
 };
 
 export const ActivityGraphDataSchema: jsonschema.Schema = {
-    "id": "/ActivityGraphData",
-    "type": "object",
-    "properties": {
+    id: "/ActivityGraphData",
+    properties: {
         activityTimelineIcons: {
+            items: ActivityTimelineIconsSchema,
             type: "array",
-            items: ActivityTimelineIconsSchema
         },
         activityTimelineSamples: {
+            items: TimeValuePairSchema,
             type: "array",
-            "items": TimeValuePairSchema
         },
         activityZoneLimits: {
+            items: {
+                type: "number",
+            },
+            maxItems: 7,
+            minItems: 1,
             type: "array",
-            "minItems": 1,
-            "maxItems": 7,
-            "items": {
-                "type": "number"
-            }
         },
         heartRateSummary: {
-            type: "object",
             properties: {
                 dayMaximum: { type: "number" },
                 dayMaximumDateTime: { type: "number" },
                 dayMinimum: { type: "number" },
                 dayMinimumDateTime: { type: "number" },
                 nightMinimum: { type: "number" },
-                nightMinimumDateTime: { type: "number" }
-            }
+                nightMinimumDateTime: { type: "number" },
+            },
+            type: "object",
         },
         heartRateTimelineSamples: {
             items: TimeValuePairSchema,
-            type: "array"
+            type: "array",
         },
         highSessionTimelineList: { type: "array" },
         lastSync: { type: "number" },
         trainingTimelineList: {
             items: StartEndTimePairSchema,
-            type: "array"
-        }
-    }
+            type: "array",
+        },
+    },
+    type: "object",
 };
 
-
 export const ActivityTimelineSchema: jsonschema.Schema = {
+    additionalProperties: false,
     id: "/ActivityTimeline",
-    type: "object",
     patternProperties: {
         // The property name will be passed to new RegExp(prop), so backslashes
         // have to be escaped.
         "^[0-9]{4,4}\-[0-9]{1,2}\-[0-9]{1,2}$": {
-            "type": "object",
-            "properties": {
-                "dataPanelData": {
-                    "type": "object"
+            properties: {
+                activityGraphData: ActivityGraphDataSchema,
+                dataPanelData: {
+                    type: "object",
                 },
-                "activityGraphData": ActivityGraphDataSchema
-            }
-        }
+            },
+            type: "object",
+        },
     },
-    additionalProperties: false
+    type: "object",
 };
