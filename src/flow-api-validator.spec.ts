@@ -1,29 +1,29 @@
-import * as flowApiValidator from './flow-api-validator';
-import { expect } from 'chai';
-import * as sinon from 'sinon';
-import * as jsonschema from 'jsonschema';
-import { ActivityTimelineSchema } from './schemas/day-summary';
-// if you used the '@types/mocha' method to install mocha type definitions, uncomment the following line
-import 'mocha';
+import * as flowApiValidator from "./flow-api-validator";
+import { expect } from "chai";
+import * as sinon from "sinon";
+import * as jsonschema from "jsonschema";
+import { ActivityTimelineSchema } from "./schemas/day-summary";
+// if you used the "@types/mocha" method to install mocha type definitions, uncomment the following line
+import "mocha";
 
-describe('FlowApiValidator', () => {
-    describe('validateTimelineSummaryPromise()', () => {
+describe("FlowApiValidator", () => {
+    describe("validateTimelineSummaryPromise()", () => {
         let stub1: sinon.SinonStub;
         const testObj: any = {
             test: 1,
-            test2: 'asdf'
+            test2: "asdf"
         };
         const testData: any = {
-            test: '2135135',
-            test2: 'asdf'
+            test: "2135135",
+            test2: "asdf"
         };
         before(() => {
-            stub1 = sinon.stub(flowApiValidator.FlowApiValidator, 'validateTimelineSummary').returns(testObj);
+            stub1 = sinon.stub(flowApiValidator.FlowApiValidator, "validateTimelineSummary").returns(testObj);
         });
         after(() => {
             stub1.restore();
         });
-        it('should returnvalidateTimelineSummary hello world', () => {
+        it("should returnvalidateTimelineSummary hello world", () => {
             return flowApiValidator.FlowApiValidator.validateTimelineSummaryPromise(testData)
                 .then((data) => {
                     expect(testObj).to.deep.equal(data);
@@ -32,23 +32,23 @@ describe('FlowApiValidator', () => {
                 });
         });
     });
-    describe('validateTimelineSummary()', () => {
+    describe("validateTimelineSummary()", () => {
         let stub1: sinon.SinonStub;
         let stubInstance: sinon.SinonStubbedInstance<jsonschema.Validator>;
         const testObj: any = {
             test: 1,
-            test2: 'asdf'
+            test2: "asdf"
         };
         before(() => {
             stubInstance = sinon.createStubInstance(jsonschema.Validator);
             stubInstance.validate.returns(<any>false);
-            stub1 = sinon.stub(jsonschema, 'Validator').returns(stubInstance);
+            stub1 = sinon.stub(jsonschema, "Validator").returns(stubInstance);
         });
         after(() => {
             stub1.restore();
         });
-        it('should returnvalidateTimelineSummary hello world', () => {
-            expect(flowApiValidator.FlowApiValidator.validateTimelineSummary(testObj)).to.equal(false, 'Must return false');
+        it("should returnvalidateTimelineSummary hello world", () => {
+            expect(flowApiValidator.FlowApiValidator.validateTimelineSummary(testObj)).to.equal(false, "Must return false");
             expect(stub1.callCount).to.equal(1);
             expect(stubInstance.addSchema.callCount).to.equal(1);
             expect(stubInstance.addSchema.getCall(0).args.length).to.equal(1);

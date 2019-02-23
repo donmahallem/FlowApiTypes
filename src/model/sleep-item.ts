@@ -4,7 +4,7 @@ export interface NightSleep {
     sleepEndOffset: number;
     sleepEndTime: string;
     sleepGoal: number;
-    sleepRating: null | 'SLEPT_NEITHER_BAD_NOR_WELL';
+    sleepRating: null | "SLEPT_NEITHER_BAD_NOR_WELL";
     sleepStartOffset: number;
     sleepStartTime: string;
 }

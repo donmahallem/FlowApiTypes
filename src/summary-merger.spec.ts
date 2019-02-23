@@ -1,23 +1,23 @@
-import * as merger from './summary-merger';
-import { expect } from 'chai';
-import * as sinon from 'sinon';
-import 'mocha';
+import * as merger from "./summary-merger";
+import { expect } from "chai";
+import * as sinon from "sinon";
+import "mocha";
 
-describe('SummaryMerger', () => {
-    describe('add', () => {
+describe("SummaryMerger", () => {
+    describe("add", () => {
         let mergerInstance: merger.SummaryMerger;
         const testData: any = {
-            test: 'data',
+            test: "data",
             testNum: 2
         };
         beforeEach(() => {
             mergerInstance = new merger.SummaryMerger();
         });
-        describe('(*)', () => {
+        describe("(*)", () => {
             let generateKeyStub: sinon.SinonStub;
             beforeEach(() => {
-                generateKeyStub = sinon.stub(mergerInstance, 'generateKey');
-                generateKeyStub.returns('asdf');
+                generateKeyStub = sinon.stub(mergerInstance, "generateKey");
+                generateKeyStub.returns("asdf");
             });
 
             afterEach(() => {
@@ -26,23 +26,23 @@ describe('SummaryMerger', () => {
                 generateKeyStub.restore();
             });
 
-            it('should throw error for duplicate', () => {
-                generateKeyStub.onCall(1).returns('asdf');
+            it("should throw error for duplicate", () => {
+                generateKeyStub.onCall(1).returns("asdf");
                 mergerInstance.add(testData);
                 expect(mergerInstance.add.bind(mergerInstance, testData, false)).to.throw();
             });
-            it('should not throw error', () => {
-                generateKeyStub.onCall(1).returns('asdf2');
+            it("should not throw error", () => {
+                generateKeyStub.onCall(1).returns("asdf2");
                 mergerInstance.add(testData);
                 expect(mergerInstance.add.bind(mergerInstance, testData)).to.not.throw();
             });
         });
-        describe('(*,true|false)', () => {
+        describe("(*,true|false)", () => {
 
             let generateKeyStub: sinon.SinonStub;
             beforeEach(() => {
-                generateKeyStub = sinon.stub(mergerInstance, 'generateKey');
-                generateKeyStub.returns('asdf');
+                generateKeyStub = sinon.stub(mergerInstance, "generateKey");
+                generateKeyStub.returns("asdf");
             })
 
             afterEach(() => {
@@ -50,26 +50,26 @@ describe('SummaryMerger', () => {
                 generateKeyStub.restore();
             });
 
-            describe('(*,false)', () => {
-                it('should throw error for duplicate', () => {
-                    generateKeyStub.onCall(1).returns('asdf');
+            describe("(*,false)", () => {
+                it("should throw error for duplicate", () => {
+                    generateKeyStub.onCall(1).returns("asdf");
                     mergerInstance.add(testData, false);
                     expect(mergerInstance.add.bind(mergerInstance, testData, false)).to.throw();
                 });
-                it('should not throw error', () => {
-                    generateKeyStub.onCall(1).returns('asdf2');
+                it("should not throw error", () => {
+                    generateKeyStub.onCall(1).returns("asdf2");
                     mergerInstance.add(testData, false);
                     expect(mergerInstance.add.bind(mergerInstance, testData, false)).to.not.throw();
                 });
             });
-            describe('(*,true)', () => {
-                it('should throw error for duplicate', () => {
-                    generateKeyStub.onCall(1).returns('asdf');
+            describe("(*,true)", () => {
+                it("should throw error for duplicate", () => {
+                    generateKeyStub.onCall(1).returns("asdf");
                     mergerInstance.add(testData, true);
                     expect(mergerInstance.add.bind(mergerInstance, testData, true)).to.not.throw();
                 });
-                it('should not throw error', () => {
-                    generateKeyStub.onCall(1).returns('asdf2');
+                it("should not throw error", () => {
+                    generateKeyStub.onCall(1).returns("asdf2");
                     mergerInstance.add(testData, true);
                     expect(mergerInstance.add.bind(mergerInstance, testData, true)).to.not.throw();
                 });
