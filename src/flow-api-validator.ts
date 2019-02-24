@@ -1,12 +1,11 @@
 import * as jsonschema from "jsonschema";
-import { IDaySummary } from "./model";
-import { ActivityTimelineSchema } from "./schemas/day-summary";
+import { IDaySummary, DaySummarySchema } from "./model";
 
 export class FlowApiValidator {
     public static validateTimelineSummary(data: IDaySummary | any): jsonschema.ValidatorResult {
         const val: jsonschema.Validator = new jsonschema.Validator();
-        val.addSchema(ActivityTimelineSchema);
-        return val.validate(data, ActivityTimelineSchema);
+        val.addSchema(DaySummarySchema);
+        return val.validate(data, DaySummarySchema);
     }
 
     public static validateTimelineSummaryPromise(data: IDaySummary | any): Promise<jsonschema.ValidatorResult> {

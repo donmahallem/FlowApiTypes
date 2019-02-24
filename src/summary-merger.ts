@@ -26,6 +26,10 @@ export class SummaryMerger {
         this.data[dayKey] = day;
     }
 
+    public set(key: string, data: IDayData): void {
+        this.data[key] = data;
+    }
+
     public addSummary(summary: IDaySummary): void {
         for (const key of Object.keys(summary)) {
             this.data[key] = summary[key];
@@ -48,5 +52,9 @@ export class SummaryMerger {
      */
     public get(): IDaySummary {
         return this.data;
+    }
+
+    public contains(key: string): boolean {
+        return (typeof this.data[key] !== "undefined");
     }
 }
