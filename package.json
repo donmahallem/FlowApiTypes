@@ -5,6 +5,12 @@
     "main": "dist/index.js",
     "types": "dist/index.d.ts",
     "private": false,
+    "keywords": [
+        "flow",
+        "polar",
+        "api",
+        "types"
+    ],
     "scripts": {
         "test": "mocha",
         "start": "npm run build:live",
@@ -16,8 +22,23 @@
         "lint": "tslint -c tslint.json -e src/**/*.spec.ts src/**/*.ts",
         "lint-fix": "tslint --fix -c tslint.json -e src/**/*.spec.ts src/**/*.ts"
     },
-    "author": "",
-    "license": "ISC",
+    "homepage": "https://donmahallem.github.io/FlowApiTypes/",
+    "author": {
+        "name": "donmahallem",
+        "email": "donmahallem@users.noreply.github.com",
+        "url": "https://github.com/donmahallem"
+    },
+    "license": "Apache-2.0",
+    "bugs": {
+        "url": "https://github.com/donmahallem/FlowApiTypes/issues"
+    },
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/donmahallem/FlowApiTypes.git"
+    },
+    "engines": {
+        "node": ">=8.0.0"
+    },
     "compilerOptions": {
         "target": "es5",
         "module": "commonjs",
