@@ -11,6 +11,7 @@ before_install: npm install
 script:
 - npm run build
 - npm run test-ci
+- npm run docs
 after_success:
 - npm install coveralls
 - cat ./coverage/lcov.info | coveralls -v
@@ -19,6 +20,7 @@ jobs:
   - stage: npm release
     node_js: '10'
     script: npm run build
+    if: tag IS present
     deploy:
       provider: npm
       skip_cleanup: true
@@ -27,3 +29,15 @@ jobs:
       on:
         tags: true
         repo: donmahallem/FlowApiTypes
+  - stage: github pages release
+    node_js: '10'
+    script: npm run docs
+    if: branch = master
+    deploy:
+      provider: pages
+      skip-cleanup: true
+      local-dir: docs
+      github-token: $GITHUB_TOKEN  # Set in the settings page of your repository, as a secure variable
+      keep-history: true
+      on:
+        branch: master
