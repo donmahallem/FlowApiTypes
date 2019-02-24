@@ -20,7 +20,8 @@
         "test-ci_old": "nyc ts-mocha -p tsconfig.json -- --opts mocha.opts",
         "test-ci": "nyc npm run test",
         "lint": "tslint -c tslint.json -e src/**/*.spec.ts src/**/*.ts",
-        "lint-fix": "tslint --fix -c tslint.json -e src/**/*.spec.ts src/**/*.ts"
+        "lint-fix": "tslint --fix -c tslint.json -e src/**/*.spec.ts src/**/*.ts",
+        "docs": "typedoc --options typedoc.json"
     },
     "homepage": "https://donmahallem.github.io/FlowApiTypes/",
     "author": {
@@ -66,6 +67,7 @@
         "sinon": "^7.2.2",
         "ts-node": "^8.0.1",
         "tslint": "^5.12.1",
+        "typedoc": "^0.14.2",
         "typescript": "^3.2.2"
     },
     "nyc": {
