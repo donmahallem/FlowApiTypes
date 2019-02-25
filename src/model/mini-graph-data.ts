@@ -21,7 +21,7 @@ export interface IMiniGraphData {
 export const MiniGraphDataSchema: Schema = {
     properties: {
         calorieReportUrl: { type: "string" },
-        dailyGoalReportUrl: { type: "number" },
+        dailyGoalReportUrl: { type: "string" },
         data: {
             properties: {
                 calories: TimeValuePairSchema,
@@ -34,9 +34,9 @@ export const MiniGraphDataSchema: Schema = {
             },
             type: "object",
         },
-        distanceReportUrl: { type: "number" },
+        distanceReportUrl: { type: "string" },
         sampleDate: { type: "number" },
-        sleepAvgReportUrl: { type: "number" },
+        sleepAvgReportUrl: { type: "string" },
     },
     type: "object",
 };
