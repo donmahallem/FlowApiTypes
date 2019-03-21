@@ -1,3 +1,4 @@
+import { Schema } from "jsonschema";
 
 export interface ISleepEvaluationData {
     asleep: number;
@@ -15,3 +16,33 @@ export interface ISleepEvaluationData {
     totalInterruptionCount: number;
     totalInterruptionDuration: number;
 }
+
+/**
+ * Schema for {@link ISleepEvaluationData}
+ */
+export const SleepEvaluationDataSchema: Schema = {
+    id: "/SleepEvaluationData",
+    properties: {
+        asleep: {
+            type: "number",
+        },
+        continuityClass: { type: "number" },
+        continuityIndex: { type: "number" },
+        efficiencyPercent: { type: "number" },
+        longFeedback: {
+            type: "string",
+        },
+        longInterruptionCount: { type: "number" },
+        longInterruptionDuration: { type: "number" },
+        shortFeedback: {
+            type: "string",
+        },
+        shortInterruptionCount: { type: "number" },
+        shortInterruptionDuration: { type: "number" },
+        sleepRatioPercentage: { type: "number" },
+        sleepSpan: { type: "number" },
+        totalInterruptionCount: { type: "number" },
+        totalInterruptionDuration: { type: "number" },
+    },
+    type: "object",
+};
