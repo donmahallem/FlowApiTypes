@@ -1,14 +1,14 @@
-import * as merger from "./summary-merger";
 import { expect } from "chai";
-import * as sinon from "sinon";
 import "mocha";
+import * as sinon from "sinon";
+import * as merger from "./summary-merger";
 
 describe("SummaryMerger", () => {
     describe("add", () => {
         let mergerInstance: merger.SummaryMerger;
         const testData: any = {
             test: "data",
-            testNum: 2
+            testNum: 2,
         };
         beforeEach(() => {
             mergerInstance = new merger.SummaryMerger();
@@ -21,6 +21,7 @@ describe("SummaryMerger", () => {
             });
 
             afterEach(() => {
+                // tslint:disable-next-line:no-unused-expression
                 expect(generateKeyStub.alwaysCalledWithExactly(testData)).to.be.true;
                 expect(generateKeyStub.callCount).to.equal(2);
                 generateKeyStub.restore();
@@ -43,7 +44,7 @@ describe("SummaryMerger", () => {
             beforeEach(() => {
                 generateKeyStub = sinon.stub(mergerInstance, "generateKey");
                 generateKeyStub.returns("asdf");
-            })
+            });
 
             afterEach(() => {
                 expect(generateKeyStub.callCount).to.equal(2);
