@@ -1,6 +1,5 @@
 import { expect } from "chai";
 import "mocha";
-import { IActivityGraphData } from "./index";
 
 describe("model/index", () => {
     it("should contain all", () => {

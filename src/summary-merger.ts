@@ -18,7 +18,7 @@ export class SummaryMerger {
      * @param day the day to be added
      * @param force force insert
      */
-    public add(day: IDayData, force: boolean = false, key: string = null): void {
+    public add(day: IDayData, force: boolean = false, key?: string): void {
         const dayKey: string = key ? key : this.generateKey(day);
         if (this.data[dayKey] && force === false) {
             throw new Error("Day already exists in merge");
