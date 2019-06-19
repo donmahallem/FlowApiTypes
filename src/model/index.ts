@@ -5,3 +5,4 @@ export * from "./day-summary";
 export * from "./heart-rate-summary";
 export * from "./mini-graph-data";
 export * from "./time-value-pair";
+export * from "./history-item";
