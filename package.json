@@ -63,20 +63,20 @@
         "esModuleInterop": true
     },
     "devDependencies": {
-        "@types/chai": "^4.2.3",
-        "@types/mocha": "^5.2.7",
-        "@types/node": "^12.7.5",
-        "@types/sinon": "^7.0.13",
-        "chai": "^4.2.0",
-        "highlight.js": "^9.15.10",
-        "mocha": "^6.2.0",
-        "nodemon": "^1.19.2",
-        "nyc": "^14.1.1",
-        "sinon": "^7.4.2",
-        "ts-node": "^8.4.1",
-        "tslint": "^5.20.0",
-        "typedoc": "^0.15.0",
-        "typescript": "^3.6.3"
+        "@types/chai": "~4.2.3",
+        "@types/mocha": "~5.2.7",
+        "@types/node": "~12.7.5",
+        "@types/sinon": "~7.0.13",
+        "chai": "~4.2.0",
+        "highlight.js": "~9.15.10",
+        "mocha": "~6.2.0",
+        "nodemon": "~1.19.2",
+        "nyc": "~14.1.1",
+        "sinon": "~7.4.2",
+        "ts-node": "~8.4.1",
+        "tslint": "~5.20.0",
+        "typedoc": "~0.15.0",
+        "typescript": "~3.6.3"
     },
     "nyc": {
         "include": [
@@ -105,7 +105,7 @@
         "all": true
     },
     "dependencies": {
-        "jsonschema": "^1.2.4"
+        "jsonschema": "~1.2.4"
     },
     "files": [
         "dist/*",
