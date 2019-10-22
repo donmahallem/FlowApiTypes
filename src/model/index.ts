@@ -1,3 +1,7 @@
+/*!
+ * Source https://github.com/donmahallem/FlowApiTypes
+ */
+
 export * from "./sleep";
 export * from "./day-data";
 export * from "./activity-graph-data";

@@ -1,35 +1,8 @@
+/*!
+ * Source https://github.com/donmahallem/FlowApiTypes
+ */
+
 export class FlowDate {
-
-    public static fromString(input: string): FlowDate {
-        const splits: string[] = input.split("-");
-        const year: number = parseInt(splits[0], 10);
-        const month: number = parseInt(splits[1], 10);
-        const day: number = parseInt(splits[2], 10);
-        return new FlowDate(year, month, day);
-    }
-
-    public static toDateArray(startDate: FlowDate, endDate: FlowDate): FlowDate[] {
-        if (startDate.distance(endDate) === 0) {
-            return [startDate];
-        }
-        const dates: FlowDate[] = [];
-        let nextDate: FlowDate = startDate;
-        const walkUpwards: boolean = startDate.distance(endDate) > 0;
-        do {
-            dates.push(nextDate);
-            nextDate = walkUpwards ? nextDate.nextDay() : nextDate.previousDay();
-        } while (nextDate.distance(endDate) !== 0);
-        dates.push(endDate);
-        return dates;
-    }
-
-    private mDate: Date;
-
-    public constructor(year: number, month: number, day: number) {
-        // Prime everything with zeros so no errors occur
-        this.mDate = new Date(0, 0, 0, 0, 0, 0, 0);
-        this.date.setFullYear(year, month - 1, day);
-    }
 
     public get date(): Date {
         return this.mDate;
@@ -44,6 +17,14 @@ export class FlowDate {
 
     public get day(): number {
         return this.date.getDate();
+    }
+
+    private mDate: Date;
+
+    public constructor(year: number, month: number, day: number) {
+        // prime everything with zeros so no errors occur
+        this.mDate = new Date(0, 0, 0, 0, 0, 0, 0);
+        this.date.setFullYear(year, month - 1, day);
     }
 
     public toString(): string {
@@ -74,5 +55,28 @@ export class FlowDate {
         const dateInMillis2 = diffDate.date.getTime();
         const diffInMillis = dateInMillis2 - dateInMillis1;
         return Math.round(diffInMillis / timespanOneDay);
+    }
+
+    public static fromString(input: string): FlowDate {
+        const splits: string[] = input.split("-");
+        const year: number = parseInt(splits[0], 10);
+        const month: number = parseInt(splits[1], 10);
+        const day: number = parseInt(splits[2], 10);
+        return new FlowDate(year, month, day);
+    }
+
+    public static toDateArray(startDate: FlowDate, endDate: FlowDate): FlowDate[] {
+        if (startDate.distance(endDate) === 0) {
+            return [startDate];
+        }
+        const dates: FlowDate[] = [];
+        let nextDate: FlowDate = startDate;
+        const walkUpwards: boolean = startDate.distance(endDate) > 0;
+        do {
+            dates.push(nextDate);
+            nextDate = walkUpwards ? nextDate.nextDay() : nextDate.previousDay();
+        } while (nextDate.distance(endDate) !== 0);
+        dates.push(endDate);
+        return dates;
     }
 }
