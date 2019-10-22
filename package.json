@@ -65,7 +65,7 @@
     "devDependencies": {
         "@types/chai": "~4.2.3",
         "@types/mocha": "~5.2.7",
-        "@types/node": "~12.11.2",
+        "@types/node": "~12.11.3",
         "@types/sinon": "~7.5.0",
         "chai": "~4.2.0",
         "highlight.js": "~9.15.10",
