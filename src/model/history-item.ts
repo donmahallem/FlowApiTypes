@@ -1,3 +1,7 @@
+/*!
+ * Source https://github.com/donmahallem/FlowApiTypes
+ */
+
 export interface IHistoryItem {
     calories: number;
     distance: number;

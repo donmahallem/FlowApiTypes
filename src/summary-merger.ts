@@ -1,3 +1,7 @@
+/*!
+ * Source https://github.com/donmahallem/FlowApiTypes
+ */
+
 import { IDayData, IDaySummary } from "./model";
 
 export class SummaryMerger {
@@ -20,7 +24,7 @@ export class SummaryMerger {
      */
     public add(day: IDayData, force: boolean = false, key?: string): void {
         const dayKey: string = key ? key : this.generateKey(day);
-        if (this.data[dayKey] && force === false) {
+        if (this.data[dayKey] && !force) {
             throw new Error("Day already exists in merge");
         }
         this.data[dayKey] = day;
