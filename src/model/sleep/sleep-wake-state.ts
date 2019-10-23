@@ -1,11 +1,20 @@
-export enum SleepWakeStateType {
-    INTERUPTIONS = 0,
-    DEEP_SLEEP = 3,
-    LIGHT_SLEEP = 2,
-    REM = 1,
-}
+import { SleepWakeStateType } from "./sleep-wake-state-type";
+
+/**
+ * Sleep Wake State Information
+ * @since 2.4.0
+ */
 export interface ISleepWakeState {
+    /**
+     * Long interuption
+     */
     longInterruption: boolean;
+    /**
+     * Offset from start of sleep
+     */
     offsetFromStart: number;
+    /**
+     * Sleep Wakte State described in {@link SleepWakeStateType}
+     */
     sleepWakeState: SleepWakeStateType;
 }
