@@ -30,7 +30,7 @@ after_success:
 jobs:
   include:
   - stage: npm release
-    node_js: '10'
+    node_js: 'stable'
     script: npm run build
     if: tag IS present
     deploy:
@@ -42,7 +42,7 @@ jobs:
         tags: true
         repo: donmahallem/FlowApiTypes
   - stage: github pages release
-    node_js: '10'
+    node_js: 'stable'
     script: npm run docs
     if: branch = master
     deploy:
