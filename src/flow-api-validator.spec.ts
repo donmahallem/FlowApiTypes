@@ -1,3 +1,7 @@
+/*!
+ * Source https://github.com/donmahallem/FlowApiTypes
+ */
+
 import { expect } from "chai";
 import * as jsonschema from "jsonschema";
 // if you used the "@types/mocha" method to install mocha type definitions, uncomment the following line
@@ -23,14 +27,13 @@ describe("FlowApiValidator", () => {
         after(() => {
             stub1.restore();
         });
-        it("should returnvalidateTimelineSummary hello world", () => {
-            return flowApiValidator.FlowApiValidator.validateTimelineSummaryPromise(testData)
+        it("should returnvalidateTimelineSummary hello world", () =>
+            flowApiValidator.FlowApiValidator.validateTimelineSummaryPromise(testData)
                 .then((data) => {
                     expect(testObj).to.deep.equal(data);
                     expect(stub1.callCount).to.equal(1);
                     expect(stub1.getCall(0).args).to.deep.equal([testData]);
-                });
-        });
+                }));
     });
     describe("validateTimelineSummary()", () => {
         let stub1: sinon.SinonStub;

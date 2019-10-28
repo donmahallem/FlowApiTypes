@@ -1,3 +1,7 @@
+/*!
+ * Source https://github.com/donmahallem/FlowApiTypes
+ */
+
 import { Schema } from "jsonschema";
 import {
     INightSleep,
