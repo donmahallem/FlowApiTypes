@@ -1,3 +1,7 @@
+/*!
+ * Source https://github.com/donmahallem/FlowApiTypes
+ */
+
 import { SleepWakeStateType } from "./sleep-wake-state-type";
 
 /**

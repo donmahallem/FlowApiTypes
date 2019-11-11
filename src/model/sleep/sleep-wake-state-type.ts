@@ -1,3 +1,7 @@
+/*!
+ * Source https://github.com/donmahallem/FlowApiTypes
+ */
+
 /**
  * Sleep Wake State Type
  * @since 2.4.0

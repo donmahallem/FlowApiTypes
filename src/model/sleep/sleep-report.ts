@@ -1,3 +1,8 @@
+/*!
+ * Source https://github.com/donmahallem/FlowApiTypes
+ */
+
+import { Schema } from "jsonschema";
 import { ISleepWakeState } from "./sleep-wake-state";
 
 /** Response from
@@ -24,3 +29,7 @@ export interface ISleepReport {
     sleepStartTime: string;
     sleepWakeStates: ISleepWakeState[];
 }
+
+export const SleepReportSchema: Schema = {
+    type: "object",
+};
