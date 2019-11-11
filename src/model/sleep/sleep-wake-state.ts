@@ -2,7 +2,8 @@
  * Source https://github.com/donmahallem/FlowApiTypes
  */
 
-import { SleepWakeStateType } from "./sleep-wake-state-type";
+import { Schema } from "jsonschema";
+import { SleepWakeStateType, SleepWakeStateTypeSchema } from "./sleep-wake-state-type";
 
 /**
  * Sleep Wake State Information
@@ -22,3 +23,16 @@ export interface ISleepWakeState {
      */
     sleepWakeState: SleepWakeStateType;
 }
+
+export const SleepWakeStateSchema: Schema = {
+    properties: {
+        longInterruption: {
+            type: "boolean",
+        },
+        offsetFromStart: {
+            type: "number",
+        },
+        sleepWakeState: SleepWakeStateTypeSchema,
+    },
+    type: "object",
+};

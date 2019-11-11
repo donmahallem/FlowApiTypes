@@ -9,7 +9,7 @@ import { ISleepWakeState } from "./sleep-wake-state";
  *
  * https://sleep.flow-prd.api.polar.com/api/sleep/report?from=x&to=y
  * @since 2.4.0
- * */
+ */
 export interface ISleepReport {
     continuityClass: number;
     continuityIndex: number;
