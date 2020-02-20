@@ -17,15 +17,19 @@ jobs:
       - name: Run Build
         run: npm run build
       - name: Run Test
-        run: npm run test:ci
+        run: npm run test:coverage
       - uses: actions/upload-artifact@v1
         with:
           name: coverage-data
-          path: ./coverage/sudokuNg
+          path: ./coverage
       - name: Run Lint
         run: npm run lint
       - name: Run Docs
-        run: npm run compodoc
+        run: npm run docs
+      - uses: actions/upload-artifact@v1
+        with:
+          name: docs
+          path: ./docs
       - name: Coveralls Coverage Upload
         uses: coverallsapp/github-action@master
         if: success()

@@ -18,14 +18,10 @@
         "build": "tsc",
         "build:doc": "node ./node_modules/typedoc/bin/typedoc --out ./tt2/ --mode modules --exclude /**/index ./src/",
         "test-ci_old": "nyc ts-mocha -p tsconfig.json -- --opts mocha.opts",
-        "test-ci": "nyc npm run test",
+        "test:coverage": "nyc npm run test",
         "lint": "tslint -c tslint.json -p tsconfig-lint.json src/**/*.ts",
-        "lint-fix": "tslint --fix -c tslint.json -p tsconfig-lint.json src/**/*.ts",
-        "docs": "typedoc --options typedoc.json",
-        "test:lint": "npm run lint",
-        "test:build": "npm run build",
-        "test:unit": "npm run test-ci",
-        "test:docs": "npm run docs"
+        "lint:fix": "tslint --fix -c tslint.json -p tsconfig-lint.json src/**/*.ts",
+        "docs": "typedoc --options typedoc.json"
     },
     "homepage": "https://donmahallem.github.io/FlowApiTypes/",
     "author": {
