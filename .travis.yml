@@ -13,8 +13,10 @@ env:
   - TEST_SUITE=unit
   - TEST_SUITE=docs
 cache: npm
-script:
-- npm run test:$TEST_SUITE
+script: |
+  echo $TRAVIS_JOB_ID
+  echo $TRAVIS_PULL_REQUEST
+  npm run test:$TEST_SUITE
 after_success:
 - ./coveralls_upload.sh
 jobs:
