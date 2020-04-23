@@ -1,10 +1,15 @@
+/*!
+ * Source https://github.com/donmahallem/FlowApiTypes
+ */
+
+import { Schema } from "jsonschema";
 import { ISleepWakeState } from "./sleep-wake-state";
 
 /** Response from
  *
  * https://sleep.flow-prd.api.polar.com/api/sleep/report?from=x&to=y
  * @since 2.4.0
- * */
+ */
 export interface ISleepReport {
     continuityClass: number;
     continuityIndex: number;
@@ -24,3 +29,7 @@ export interface ISleepReport {
     sleepStartTime: string;
     sleepWakeStates: ISleepWakeState[];
 }
+
+export const SleepReportSchema: Schema = {
+    type: "object",
+};
